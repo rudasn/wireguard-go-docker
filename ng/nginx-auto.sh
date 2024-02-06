@@ -19,7 +19,9 @@ nginx_up() {
 main() {
     echo "main"
 
-    mv /etc/nginx/http.d/*.conf /etc/nginx/http.d.bk/
+    if [ -f "/etc/nginx/http.d/*.conf" ]; then
+        mv /etc/nginx/http.d/*.conf /etc/nginx/http.d.bk/
+    fi
 
     gomplate \
         --file=/etc/ng/templates/nginx-ng.sh \
