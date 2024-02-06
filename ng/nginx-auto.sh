@@ -19,9 +19,8 @@ nginx_up() {
 main() {
     echo "main"
 
-    if [ -f "/etc/nginx/http.d/*.conf" ]; then
-        mv /etc/nginx/http.d/*.conf /etc/nginx/http.d.bk/
-    fi
+    mkdir -p /etc/nginx/http.d.bk
+    mv /etc/nginx/http.d/*.conf /etc/nginx/http.d.bk || true
 
     gomplate \
         --file=/etc/ng/templates/nginx-ng.sh \
@@ -48,7 +47,10 @@ main() {
         --datasource nginx=file:///data/nginx.yaml
 
 
-    cp -r /etc/nginx/ /data
+    if [ -d /data/nginx ]; then
+        rm -r /data/nginx
+    fi
+    cp -r /etc/nginx /data
 
     nginx_up
 
