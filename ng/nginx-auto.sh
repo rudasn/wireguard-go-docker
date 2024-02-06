@@ -11,8 +11,6 @@ nginx_up() {
         nginx
     fi
 
-    cp -r /etc/nginx /data
-
     echo "tail logs"
 
     tail -f -n 1 /var/log/nginx/*.log
@@ -20,6 +18,8 @@ nginx_up() {
 
 main() {
     echo "main"
+
+    mv /etc/nginx/http.d/*.conf /etc/nginx/http.d.bk/
 
     gomplate \
         --file=/etc/ng/templates/nginx-ng.sh \
@@ -44,6 +44,9 @@ main() {
         --out=/etc/nginx/nginx.conf \
         --template=/etc/ng/templates \
         --datasource nginx=file:///data/nginx.yaml
+
+
+    cp -r /etc/nginx /data
 
     nginx_up
 
