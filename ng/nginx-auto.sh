@@ -48,7 +48,7 @@ main() {
         --datasource nginx=file:///data/nginx.yaml
 
 
-    cp -r /etc/nginx /data
+    cp -r /etc/nginx/ /data
 
     nginx_up
 
