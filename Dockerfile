@@ -28,8 +28,15 @@ COPY --from=hairyhenderson/gomplate:stable /gomplate /bin/gomplate
 
 FROM ${ARCH}alpine:${ALPINE_VERSION}
 
+    # Install certbot.
 RUN apk add --no-cache --update bash libmnl iptables openresolv iproute2 curl \
-        wireguard-tools-doc tcpdump nmap-ncat nginx
+        wireguard-tools-doc tcpdump nmap-ncat nginx \
+    python3 \
+    && python3 -m venv /opt/certbot/ \
+    && /opt/certbot/bin/pip install --upgrade pip \
+    && /opt/certbot/bin/pip install certbot certbot-nginx \
+    && ln -s /opt/certbot/bin/certbot /usr/bin/certbot
+
 
 COPY --from=builder /usr/bin/wireguard-go /usr/bin/wg* /bin/gomplate /usr/bin/
 
