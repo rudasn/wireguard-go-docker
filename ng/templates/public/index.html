@@ -9,12 +9,15 @@
         <!--# endif -->
         <style>
             body {
-                height: 80vh;
-                width: 35em;
                 margin: 0 auto;
                 font-family: Tahoma, Verdana, Arial, sans-serif;
                 display: flex;
                 align-items: center;
+                justify-content: space-around;
+            }
+            main {
+                height: 80vh;
+                width: 35em;
             }
         </style>
     </head>
@@ -23,20 +26,54 @@
             <h1>Welcome, <!--# echo var="remote_addr" default="stranger" -->!</h1>
             <hr>
             <ul>
+                <li>status: <code><!--# echo var="status" --></code></li>
                 <li>http_host: <code><!--# echo var="http_host" --></code></li>
                 <li>remote_addr: <code><!--# echo var="remote_addr" --></code></li>
+                <li>http_user_agent: <code><!--# echo var="http_user_agent" --></code></li>
+                <li>http_referer: <code><!--# echo var="http_referer" --></code></li>
                 <li>realip_remote_addr: <code><!--# echo var="realip_remote_addr" --></code></li>
                 <li>realip_remote_port: <code><!--# echo var="realip_remote_port" --></code></li>
-                <li>server_addr:server_port: <code><!--# echo var="server_addr" -->:<!--# echo var="server_port" --></code></li>
-                <li>http_user_agent: <code><!--# echo var="http_user_agent" --></code></li>
+                <li>server_addr: <code><!--# echo var="server_addr" --></code></li>
+                <li>server_name: <code><!--# echo var="server_name" --></code></li>
+                <li>server_port: <code><!--# echo var="server_port" --></code></li>
+                <li>server_protocol: <code><!--# echo var="server_protocol" --></code></li>
             </ul>
+            <hr>
             <ul>
+                <li>http_sent_x_route: <code><!--# echo var="http_sent_x_route" --></code></li>
+            </ul>
+            <hr>
+                <li>proxy_host: <code><!--# echo var="proxy_host" --></code></li>
+                <li>proxy_port: <code><!--# echo var="proxy_port" --></code></li>
+                <li>proxy_add_x_forwarded_for: <code><!--# echo var="proxy_add_x_forwarded_for" --></code></li>
                 <li>http_x_forwarded_proto: <code><!--# echo var="http_x_forwarded_proto" --></code></li>
                 <li>http_x_forwarded_for: <code><!--# echo var="http_x_forwarded_for" --></code></li>
                 <li>http_x_real_ip: <code><!--# echo var="http_x_real_ip" --></code></li>
-                <li>http_host: <code><!--# echo var="http_host" --></code></li>
-                <li>http_host_real_ip: <code><!--# echo var="http_host_real_ip" --></code></li>
-                <li>http_referer: <code><!--# echo var="http_referer" --></code></li>
+            </ul>
+            <hr>
+            <ul>
+                <li>connection: <code><!--# echo var="connection" --></code></li>
+                <li>connection_requests: <code><!--# echo var="connection_requests" --></code></li>
+                <li>connection_time: <code><!--# echo var="connection_time" --></code></li>
+                <li>document_root: <code><!--# echo var="document_root" --></code></li>
+                <li>host: <code><!--# echo var="host" --></code></li>
+                <li>hostname: <code><!--# echo var="hostname" --></code></li>
+                <li>remote_addr: <code><!--# echo var="remote_addr" --></code></li>
+                <li>remote_port: <code><!--# echo var="remote_port" --></code></li>
+                <li>remote_user: <code><!--# echo var="remote_user" --></code></li>
+                <li>request: <code><!--# echo var="request" --></code></li>
+                <li>request_id: <code><!--# echo var="request_id" --></code></li>
+                <li>request_method: <code><!--# echo var="request_method" --></code></li>
+                <li>request_time: <code><!--# echo var="request_time" --></code></li>
+                <li>server_addr: <code><!--# echo var="server_addr" --></code></li>
+                <li>server_name: <code><!--# echo var="server_name" --></code></li>
+                <li>server_port: <code><!--# echo var="server_port" --></code></li>
+                <li>server_protocol: <code><!--# echo var="server_protocol" --></code></li>
+                <li>status: <code><!--# echo var="status" --></code></li>
+                <li>tcpinfo_rcv_space: <code><!--# echo var="tcpinfo_rcv_space" --></code></li>
+                <li>tcpinfo_rtt: <code><!--# echo var="tcpinfo_rtt" --></code></li>
+                <li>tcpinfo_rttvar: <code><!--# echo var="tcpinfo_rttvar" --></code></li>
+                <li>tcpinfo_snd_cwnd: <code><!--# echo var="tcpinfo_snd_cwnd" --></code></li>
             </ul>
         </main>
     </body>
