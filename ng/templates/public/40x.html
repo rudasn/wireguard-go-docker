@@ -9,12 +9,15 @@
         <!--# endif -->
         <style>
             body {
-                height: 80vh;
-                width: 35em;
                 margin: 0 auto;
                 font-family: Tahoma, Verdana, Arial, sans-serif;
                 display: flex;
                 align-items: center;
+                justify-content: space-around;
+            }
+            main {
+                min-height: 60vh;
+                width: 35em;
             }
         </style>
     </head>
@@ -24,6 +27,10 @@
                 <code><!--# echo var="status" default="Error" --></code>
                 <!--# echo var="status_text" default="Something went wrong" -->
             </h1>
+            <p>
+                <!--# echo var="status_description" default="Something went wrong" -->
+            </p>
+            {{ file.Read "/etc/ng/templates/public/info.html" }}
         </main>
     </body>
 </html>
