@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title><!--# echo var="status" default="Error" --></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--# if expr="$status = 418" -->
+
+        <!--# endif -->
+        <style>
+            body {
+                margin: 0 auto;
+                font-family: Tahoma, Verdana, Arial, sans-serif;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+            }
+            main {
+                min-height: 60vh;
+                width: 35em;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h1>
+                <code><!--# echo var="status" default="Error" --></code>
+                <!--# echo var="status_text" default="Something went wrong" -->
+            </h1>
+            <p>Please authenticate to continue.</p>
+            {{ file.Read "/etc/ng/templates/public/info.html" }}
+        </main>
+    </body>
+</html>

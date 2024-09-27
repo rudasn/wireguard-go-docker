@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Welcome</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--# if expr="$status = 418" -->
+
+        <!--# endif -->
+        <style>
+            body {
+                margin: 0 auto;
+                font-family: Tahoma, Verdana, Arial, sans-serif;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+            }
+            main {
+                min-height: 60vh;
+                width: 35em;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h1>Welcome, <!--# echo var="remote_addr" default="stranger" -->!</h1>
+            {{ file.Read "/etc/ng/templates/public/info.html" }}
+        </main>
+    </body>
+</html>
